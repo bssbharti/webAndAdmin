@@ -1,0 +1,285 @@
+<nav class="navbar navbar-dark bg-dark navbar-expand-md">
+    <!-- Navbar brand --> 
+    <a class="navbar-brand" routerLink="/dashboard">Admin Panel</a>
+    <!-- Collapsible content -->
+    <div class="mobTopSerach navbar-collapse" id="navbarSupportedContent1">
+        <!-- Search -->
+        <!-- <form class="form-inline my-2 my-lg-0" [formGroup]="filterData">
+        <input class="form-control mr-sm-2 search" type="search" formControlName="name" placeholder="Search for stories" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="search()"><img src="assets/img/right_arrow.svg" class="redarrowhover" width="16" alt="submit"></button>
+        </form> -->
+        <!-- &nbsp;<img src="assets/img/icon_filter_white.svg" width="25" (click)="toggle()"> -->
+        <!-- Links -->
+        <ul class="navbar-nav ml-auto">
+        <li class="nav-item active d-none d-sm-block"><a  class="nav-link" (click)="logout()"><i class="fas fa-sign-out-alt"></i></a> </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+<div *ngIf="story != undefined" class="detailpage">
+    <div class="row audio controls">
+        <div class="col-sm-10 col-md-8">
+        <!-- <img [src]="story.posterImage || ''" class="rounded img-fluid" height="300" alt="Placeholder image">       -->
+        <div class="audioplayer"><iframe scrolling="no" style="overflow:hidden;width: 100%;height: 300px;border:none;top: 0;position: relative;left: 0;" scrolling="no" [src]="urlval"></iframe>
+        </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 story details">
+        <div class="story transcript">
+        <br/>
+        <p class="smallbuttontext"><img src="assets/img/icon_transcriptbuttontext.svg" width="80" (click)="toggle()"></p> 
+        <div class="transcript text-left" id="collapseExample" [@openClose]="isOpen ? 'open' : 'closed'">
+            <div class="transcript"  [innerHTML]="transform(story.transcriptText)">
+                <!-- {{story.transcriptText}} -->
+            </div>
+            </div>   
+        </div>
+        
+        <div>
+            <h3 class="storySponsor"><img class="sponsorlogo" [src]="story.sponsorImage || ''" width="63" height="20" alt=""/>&ensp;Presents  </h3>
+            <h1 class="storyHeadline">{{story?.name}}</h1>
+            <!-- <p class="storyAbout">{{story.description}}</p> -->
+            <p class="storyAbout">{{story.overview}}</p>            
+        </div>
+    </div>
+
+    
+    <div class="support container-fluid">
+        <div class="row">
+        <div class="col-xl-12 text-center">
+        <div class="storymedia">
+            <img [src]="embedImgurl" class="img-fluid" alt="image"/>            
+        </div>
+        <br/>
+        <div class="storymedia" *ngFor="let video of story.videos">
+            <div *ngIf="checkVideoUrl(video.url); else elseBlock">
+                <iframe width="100%" height="345" src={{video.url}}>
+                </iframe>
+            </div>
+            <ng-template #elseBlock>
+                <video width="100%" controls>
+                    <source src={{video.url}} type="video/ogg">
+                    <source src={{video.url}} type="video/mp4">
+                    <track label="English" kind="subtitles" srclang="en" *ngIf="video.transcript" [src]="video.transcript" default> 
+                    Your browser does not support HTML5 video.
+                </video>
+            </ng-template>
+            <!-- <video width="100%" controls>
+            <source src={{video.url}} type="video/ogg">
+            <source src={{video.url}} type="video/mp4">
+                <track label="English" kind="subtitles" srclang="en" *ngIf="video.transcript" [src]="video.transcript" default> 
+            Your browser does not support HTML5 video.
+            </video> -->
+            <p></p>
+        </div>
+        <div class="storymedia" *ngFor="let image of story.image">
+            <img [src]="image || ''" class="img-fluid" alt="image">
+            <p></p>
+        </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 story details">
+        <div class="row story specs">
+        <div class="story specs">
+                
+            <div class="rating">
+                <img src="assets/img/rating_r_black.svg" width="125px" *ngIf="story.ratings == 'RESTRICTED'">
+                <img src="assets/img/rating_g_black.svg" width="125px" *ngIf="story.ratings == 'GENERAL AUDIENCES'">
+                <img src="assets/img/rating_pg_black.svg" width="125px" *ngIf="story.ratings == 'PARENTAL GUIDANCE'">
+            </div>
+            <h1 class="storyData"><i class="fas fa-sliders-h"></i>&nbsp; GENRE 
+            <span class="storyData results" *ngFor="let g of story.genresId">{{g.name}}, </span></h1>
+            <h1 class="storyData"><i class="far fa-clock"></i>&nbsp; RUN TIME <span class="storyData results">{{story.audioLength}}</span></h1>
+            <h1 class="storyData"><i class="far fa-calendar"></i>&nbsp; RELEASED <span class="storyData results">2018</span></h1>
+            <h1 class="storyData"><i class="fas fa-globe"></i>&nbsp; LANGUAGE <span class="storyData results">ENGLISH</span></h1>
+            <br>
+            <h1 class="storyData" *ngFor="let credits of story.credits">{{credits.role}} <span class="storyData results">{{credits.name}}</span></h1>
+        </div>       
+        </div>
+       
+        <div class="story tags">
+        <a class="story related tags" href="#" *ngFor="let credits of story.tags">{{credits}}</a>
+        </div>        
+    </div>
+</div>   
+
+<!-- <div class="container-fluid px-sm-2">
+    <div class="row mx-sm-n2" *ngIf="commonServ.listStory.stories != undefined">  
+        <div class="col-sm-6 px-sm-2" *ngFor="let item of commonServ.listStory.stories; let i = index" [ngClass]="i > 3 ? 'd-none':''">
+        <app-story-poster-item [data]="item" ></app-story-poster-item>
+        </div>
+    </div>
+</div> -->
+
+</div>
+
+
+
+
+
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h5 _ngcontent-c1="" class="mb-md-0 mt-3">Detail Story</h5>
+            <div class="card p-2 shadow-lg form-sm mt-2 detailTable">
+                <div class="table-responsive table-sm table-borderless table-striped ">
+                    <table class="table table-bordered m-0">
+                        <tbody>
+                            <tr>
+                                <th>Name</th>
+                                <td>{{story?.name}}</td>
+                            </tr>
+                            <tr>
+                                <th>Genres</th>
+                                <td>{{story?.genres}}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <table class="w-100">
+                                        <tr>
+                                            <td>
+                                            <h6>Sponsor Image</h6>
+                                            <img *ngIf="spnsImgUrl" [src]="spnsImgUrl" width="100" height="100" class="img-thumbnail"></td>
+                                            <td> 
+                                            <h6>Poster Image</h6>
+                                            <img *ngIf="pstrImgUrl" [src]="pstrImgUrl" width="100" height="100" class="img-thumbnail">
+                                            </td>
+                                            <td>
+                                                <h6>Embed Image</h6>
+                                                <img *ngIf="embedImgurl" [src]="embedImgurl" width="100" height="100" class="img-thumbnail">
+                                            </td>
+                                        </tr>
+                                        </table>
+                                </td>
+                            <tr>
+                                <th>Rating</th>
+                                <td>{{story?.ratings}}</td>
+                            </tr>
+                            <tr>
+                                <th>Description</th>
+                                <td>{{story?.description.trim()?story.description:'N/A'}}</td>
+                            </tr>
+                            <tr>
+                                <th>Overview</th>
+                                <td>{{story?.overview?story?.overview:'N/A'}}</td>
+                            </tr>
+                            <tr>
+                                <th>Audio</th>
+                                <td>{{story?.audioName?story.audioName:'N/A'}} &nbsp;<span class="badge badge-dark">{{story?.audioLength}}</span></td>
+                            </tr>
+                            <tr>
+                                <th>Tags</th>
+                                <td>
+                                    <table class="table-default">
+                                        <tbody>
+                                            <tr>
+
+                                                <td *ngFor="let item of tags;index as i">
+                                                    <div class="badge badge-dark">{{item}}</div>
+                                                    <!-- <a class="danger ml-1" (click)="removeTag(i)" title="Delete"><i class=" fa fa-remove"></i></a> --/>
+
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                                </tr>
+                                <tr>
+                                    <th>Credit</th>
+                                    <td>
+                                        <table class="table table-bordered table-striped">
+                                            <thead class="table-dark">
+                                                <tr>
+                                                    <th>ROLE</th>
+                                                    <th>NAME</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let item of roles">
+                                                    <td >{{item.role}}</td>
+                                                    <td>{{item.name}}</td>
+                                                   
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            <tr>
+                                <th>Video</th>
+                                <td>
+                                    <table class="table table-bordered table-striped">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>Link</th>
+                                                <th>Transcript Name</th>
+                                                <th>Duration</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr class="" *ngFor="let item of story?.videos| slice:0:5;index as i ">
+                                                <td>
+                                                    <a *ngIf="!item.url">N/A</a>
+                                                    <a *ngIf="item.url" [attr.href]="item.url.indexOf('http')==0?item.url:'//'+item.url" target="_blank" [title]="item.url">{{item.url?item.url:'N/A'}}
+                                                    </a>
+                                                </td>
+                                                <td>{{item.transcriptName?item.transcriptName.split(',,')[0]:'N/A'}}</td>
+                                                <td [ngSwitch]="item.videoDuration">
+                                                    <span *ngSwitchCase="1">Under 5:00</span>
+                                                    <span *ngSwitchCase="2">5:00 - 10:00</span>
+                                                    <span *ngSwitchCase="3">10:00 - 20:00</span>
+                                                    <span *ngSwitchCase="4">20:00 +</span>
+
+                                                </td>
+
+                                                <!-- <option value="1">Under 5:00</option>
+                                <option value="2">5:00 - 10:00</option>
+                                <option value="3">10:00 - 20:00</option>
+                                <option value="4">20:00 +</option> --/>
+
+
+                                            </tr>
+
+
+                                            <!-- <a class="text-danger" (click)="deleteStoryVideo(item._id,i)" title="Delete"><i class="fa fa-trash-o fa-2x"></i></a> -/->
+
+
+
+                                        </tbody>
+                                    </table>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <th>Images</th>
+                                <td>
+                                    <table>
+                                        <tbody>
+                                            <tr class="table-light">
+
+                                                <td *ngFor="let item of images | slice:0:5">
+                                                    <img [src]="item" width="100" height="100" class="img-thumbnail">
+                                                    <!-- <a class="text-danger" (click)="removeImage(item,i)" title="Delete"><i class="fa fa-trash-o fa-2x"></i></a> --/>
+
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+
+                            </tr>
+
+                            
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

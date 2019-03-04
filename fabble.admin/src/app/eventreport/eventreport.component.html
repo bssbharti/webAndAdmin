@@ -1,0 +1,28 @@
+<h2 style="margin-top:10px;">Events Report</h2>
+<table class="table">
+  
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Event Photo</th>
+      <th scope="col">Title</th>
+      <th scope="col">Repoter Photo</th>
+      <th scope="col">Name</th>
+      <th scope="col">email</th>
+      <th scope="col">Reported Date</th>
+      
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of eventReport.data">
+        <td><img src="{{(data.channelsDocs.length>0 && data.channelsDocs[0].path)?data.channelsDocs[0].path:'https://picsum.photos/200/300/?random'}}" style="height:50px;width:50px;"/></td>
+      <td id="row_{{data._id}}">{{(data.channels.length && data.channels[0].title)? data.channels[0].title:''}}</td>
+      <td><img src="{{(data.userDocs.length>0 && data.userDocs[0].path)?data.userDocs[0].path:'https://picsum.photos/200/300/?random'}}" style="height:50px;width:50px;"/></td>
+      <td><a>{{(data.user.length && data.user[0].name)? data.user[0].name:''}}</a></td>
+      <td>{{(data.user.length && data.user[0].email)? data.user[0].email:''}}</td>
+      <td>{{data.created_at ? (data.created_at | date:'medium'):''}}</td>
+      
+    </tr>
+   
+  </tbody>
+</table>

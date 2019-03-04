@@ -1,0 +1,37 @@
+
+<div class="is-auth">
+  <!--<h4  >Login</h4>-->
+
+   
+
+      <form #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+          <!-- {{userForm.form.valid}} -->
+          <div class="form-heading">
+              <div class="from-group  mt-3">
+                  <h3>Login</h3>
+              </div>
+              </div>
+              <div class="form-body">
+                  <div class="form-group has-feedback">
+                     
+                          <label>Email</label>
+                          <input type="text" [(ngModel)]="email" name="email" [class.is-invalid]="email.invalid && email.touched" class="form-control" placeholder="Enter email ">
+                           <!--<small class="text-danger" [class.d-none]="email.valid || email.untouched">email is Required</small>-->                    
+                      </div>
+                  <div class="form-group has-feedback">
+                     
+                          <label>Password</label>
+                          <input type="password" name="password" [(ngModel)]="password" [type]="show ? 'text' : 'password'"
+                                 [class.is-invalid]="password.invalid && password.touched" class="form-control" placeholder="Enter Password">
+          
+                      </div>
+                      <div class="pull-right">
+                          <a routerLink="/forgotpassword" class="text-danger">Forgot your password?</a>
+                      </div>
+                      <div class="from-group text-danger">
+                          <button type="submit" class="btn btn-primary mt-3"> Sign In</button>
+                      </div>
+                  </div>
+</form>
+</div>
+  

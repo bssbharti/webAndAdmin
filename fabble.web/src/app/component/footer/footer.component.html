@@ -1,0 +1,24 @@
+<footer>
+  <div class="col-xl-12 footer">
+    <div class="footer brand"><img src="assets/img/icarus_black_mark.svg" class="redarrowhover" width="60" alt="Icarus Logo"></div>
+    <p class="footer tag">Icarus is devoted to organizing humankind’s great stories to spread inspiration and wisdom worldwide.</p>
+    <div class="newsletter-subscribe">
+      <div class="container">
+        <form class="form-inline subscription" (ngSubmit)="SubscribeFun()" [formGroup]="formData">
+          <div class="form-group">
+            <input class="form-control subscription" type="email" id="email" formControlName="email" placeholder="Sign up for Icarus emails" #email required />
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary subscription" type="submit" [disabled]="!formData.valid" ><img src="assets/img/right_arrow.svg" width="16" alt="submit"></button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="footer links"> <span class="footer icons"><i class="fab fa-instagram fa-sm"></i>&nbsp;<i class="fab fa-twitter fa-sm"></i>&nbsp;</span><a class="footer links" href="about.html">Company</a>&nbsp; <a class="footer links" href="index.html">Stories </a>&nbsp; <a class="footer links" href="help.html">Help </a>&nbsp; </div>
+    <p class="footer legal"><em class="fas fa-copyright"></em> 2019 Icarus Expeditions LLC. |&nbsp; <a class="footer links-legal" href="privacy.html">Privacy</a> &nbsp;| <a class="footer links-legal" href="terms.html"> Terms</a></p>
+  </div>
+</footer>
+<div style="position: fixed; top: 10px; right: 10px; z-index: 9999;">
+  <div [innerHTML]="Notification"></div>
+</div>
+

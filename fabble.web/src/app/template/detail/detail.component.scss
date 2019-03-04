@@ -1,0 +1,200 @@
+
+  /* STORY STYLES ---------------------------------------------------------------*/
+  
+/*.detailpage{
+	max-width:1000px; margin:0 auto
+}
+.storymedia{max-width:600px; margin:0 auto}*/
+
+  .col-md-6.story.details {
+      margin: 0 auto 0 auto;
+      max-width: 650px;
+  }
+  .row.audio.controls {
+      /* [disabled]display: block; */
+      margin-top: 62px;
+      margin-bottom: -6px;
+      margin-left: auto;
+      margin-right: auto;
+      justify-content: center;
+  }
+  
+  .storyHeadline {
+      font-family: trade-gothic-next-condensed, sans-serif;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 30px;
+      color: #1D1D1D;
+      line-height: 38px;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 18px;	
+  }
+  .storyHeadlineleft {
+      font-family: trade-gothic-next-condensed, sans-serif;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 30px;
+      color: #FFFFFF;
+      line-height: 38px;
+      text-align: left;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 18px;
+      margin-top: 12px;
+  }
+  .storySponsor {
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+  }
+  .storySponsorleft {
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+  }
+  .storySponsorleft {
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+      text-align: left;
+  }
+  .storyAbout {
+      text-align: center;
+      font-size: 16px;
+      margin-bottom: 40px;
+      color: #1D1D1D;
+  }
+  .row.story.specs {
+      margin-top: 30px;
+      margin-bottom: 36px;
+  }
+  .story.specs {
+      margin: 0 auto 0 auto;
+  }
+  .rating {
+      margin-bottom: 10px;
+  }
+  .storyData {
+      color: #1D1D1D;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 1px;
+  }
+  .btn-primary.transcript {
+      color: #fff;
+      background-color: #FFFFFF;
+      border-color: #fff #fff #FFFFFF;
+      max-height: 38px;
+  }
+  
+  .btn-primary.transcript:hover, .btn-primary.transcript:active {
+    background-color: #fff;
+    border-color: #fff;
+  }
+  .storyData.results {
+      font-weight: 800;
+      color: #1D1D1D;
+      text-transform: uppercase;
+      padding-top: 2px;
+  }
+  .row.story.transcript {
+      margin-top: 10px;
+      text-align: left;
+      margin-bottom: 0px;
+      justify-content: center;
+  }
+  .collapse.transcript {
+      margin-bottom: 71px;
+  }
+  .transcriptTimemarkers {
+      font-family: trade-gothic-next, sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      color: #fff;
+      background-color: #CC0000;
+      border-color: #FF355D;
+      padding-top: 1px;
+      padding-bottom: 3px;
+      font-size: 13px;
+      text-transform: uppercase;
+      margin-right: 6px;
+      border-width: 1px;
+      padding-left: 5px;
+      border-radius: 3px;
+      padding-right: 4px;
+  }
+  .transcriptlinks {
+      color: #CC0000;
+      font-weight: 700;
+  }
+  .transcriptlinks:hover {
+      color: #EA0000;
+      text-decoration: none;
+  }
+  
+  .story.tags {
+      margin-top: 0px;
+      margin-right: auto;
+      margin-left: auto;
+      margin-bottom: 40px;
+  }
+  .relatedHeadline {
+      font-size: 14px;
+      margin-bottom: -10px;
+  }
+  .story.related.tags {
+      font-size: 12px;
+      border: thin none #ababab;
+      border-radius: 4px;
+      color: #555;
+      text-decoration: none;
+      padding-top: 4px;
+      padding-right: 10px;
+      padding-left: 10px;
+      padding-bottom: 4px;
+      margin-top: 0;
+      margin-right: 2px;
+      margin-left: 2px;
+      margin-bottom: 8px;
+      display: inline-block;
+      background-color: #F0F0F0;
+  }
+  a.story.related.tags:hover {
+      background-color: #CC0000;
+      color: #fff;
+      border: #CC0000;
+  }
+  .row.related.stories {
+      margin-top: 0;
+      margin-right: auto;
+      margin-left: auto;
+      margin-bottom: 60px;
+      justify-content: center;
+  }
+  .card.col-md-3.relatedStories {
+      max-width: 180px;
+  }
+  .img-fluid.about {
+      max-width: 700px;
+  }
+  .sponsorlogo { width: auto;
+    height: auto;
+    max-height: 30px;
+    max-width: 70px;}
+  
+  /* END OF STORY STYLES ---------------------------------------------------------------*/

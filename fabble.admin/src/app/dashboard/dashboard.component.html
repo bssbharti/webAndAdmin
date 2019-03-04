@@ -1,0 +1,132 @@
+<nav class="navbar navbar-dark bg-dark navbar-expand-md">
+    <!-- Navbar brand --> 
+    <a class="navbar-brand" routerLink="/dashboard">Admin Panel</a>
+    <!-- Collapsible content -->
+    <div class="mobTopSerach navbar-collapse" id="navbarSupportedContent1">
+      <!-- Search -->
+      <!-- <form class="form-inline my-2 my-lg-0" [formGroup]="filterData">
+        <input class="form-control mr-sm-2 search" type="search" formControlName="name" placeholder="Search for stories" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="search()"><img src="assets/img/right_arrow.svg" class="redarrowhover" width="16" alt="submit"></button>
+      </form> -->
+      &nbsp;<img src="assets/img/icon_filter_white.svg" width="25" (click)="toggle()">
+      <!-- Links -->
+      <ul class="navbar-nav ml-auto">
+            <!-- routerLink="/login" routerLinkActive="active" -->
+        <li class="nav-item active d-none d-sm-block"><a  class="nav-link"  (click)="logout()"><i class="fas fa-sign-out-alt"></i></a> </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div class="story submenu"  [@openClose]="showSubmenu ? 'open' : 'closed'">
+        
+      <form  >            
+      <div class="container-fluid animated fadeInRight" >
+            <!-- <p align="right">a class="btn btn-link" (click)="toggle()" ><img src="assets/img/icon_close_black.svg" width="15" ></a></p> -->
+        <div class="col-sm-12 mt-3">
+            <div class="form-row">
+                <div class="col-md-3">
+                    <label id="rating" class="col-form-label-sm mb-0 pb-0">Search</label>
+                    <div class="form-group has-feedback">
+                        <input type="text" name="search" placeholder="Search By Name" class="form-control form-control-sm" [(ngModel)]="filterBy.name">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label id="rating" class="col-form-label-sm mb-0 pb-0">Ratings</label>
+                    <div class="form-group has-feedback">
+                        <!-- <input type="text" [(ngModel)]="ratings" name="ratings" class="form-control form-control-sm" placeholder="Enter rating" required> -->
+                        <select class="form-control form-control-sm" [(ngModel)]="filterBy.ratings" name="Ratings">
+                            <option value="">--Select Rating--</option>
+                            <option value="RESTRICTED">RESTRICTED</option>
+                            <option value="PARENTAL GUIDANCE">PARENTAL GUIDANCE</option>
+                            <option value="GENERAL AUDIENCES">GENERAL AUDIENCES</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label id="rating" class="col-form-label-sm mb-0 pb-0">Genres</label>
+                    <div class="form-group has-feedback">
+                        <select class="form-control form-control-sm" [(ngModel)]="selectedGenresId" (change)="addGenres()" name="geners">
+                            <option value="">--All genres--</option>
+                            <option *ngFor="let item of genresList" [value]="item._id">
+                                {{item.name}}
+                            </option>
+                        </select>
+                    </div>
+    
+                </div>
+    
+                <!-- <div class="col-md-2">
+                    <label id="rating" class="col-form-label-sm mb-0 pb-0">Length</label>
+                    <div class="form-group">
+                        <select class="form-control form-control-sm" [(ngModel)]="filterBy.videoDuration" name="geners">
+                            <option value="">--Select Length--</option>
+                            <option value="1">Under 5:00</option>
+                            <option value="2">5:00 - 10:00</option>
+                            <option value="3">10:00 - 20:00</option>
+                            <option value="4">20:00 +</option>
+                        </select></div>
+                </div> -->
+                <div class="col-md-3 mt-auto mb-3">
+                    <button type="button" (click)="searchStory()" class="btn btn-custom btn-block btn-sm">Search</button>
+                </div>
+    
+            </div>
+            <div class="form-row">
+                <h4 *ngIf="genresNameList.length>0">Genres: &nbsp;</h4>
+                <div class="d-flex flex-wrap ">
+                    <div *ngFor="let item of genresNameList;index as i;trackBy:trackByIndex" class="badge badge-dark m-1 filterbadge">
+                        <span> {{item}}<a class="danger ml-1" (click)="removeGenres(i)"><i class=" fa fa-remove"></i></a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </form>
+  
+  </div>
+
+
+<br/>
+<div class="container-fluid" *ngIf="getstoryitem !== undefined">
+    <div class="row mx-sm-n2">
+        <div class="col-sm-12">
+            <h1 class="storyHeadline">Story List 
+                <button type="button" class="btn btn-sm text-right" (click)="router.navigate(['/createstory']);">( <i class="fa fa-plus"></i> New Story )</button>
+            </h1>
+        </div>
+        <!-- <div class="col-sm-6 px-sm-2" *ngFor="let item of stories"> -->
+        <div class="col-sm-6 px-sm-2" *ngFor="let item of getstoryitem.stories">
+            <div class="story-promoposter" [ngStyle]="{'background-image': 'url('+item.playerImage+')'}" >
+                <a routerLink="/detail/{{item._id}}" class="postelink"></a>
+                <div class="functionicon">
+                    <a  [routerLink]="['/editStory', item._id]" title="Edit"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
+                    <a (click)="deleteStory(item._id)" title="Delete"><i class="fa fa-trash-o"></i></a>
+                </div>                
+                <div class="storyinformationholder" [ngClass]="!item.themeColor|| show === item._id ?'': 'light'">
+                    <!-- <div class="quickplay" (click)="showPlayer(item._id)"><img src="assets/img/icon_quickplay.svg" height="20px" alt=""/></div> -->                         
+                    <h1 class="promoheadline"><a [routerLink]="['/detailstory', item._id]" >{{item.name}}</a></h1>
+                    <p class="promosubhead"><a [routerLink]="['/detailstory', item._id]" >{{item.description}}</a></p>
+                    <p class="promospecs">
+                            <img [src]="!item.themeColor|| show === item._id ? 'assets/img/rating_r_black_icon.svg':'assets/img/rating_r_white_icon.svg'" height="12px" *ngIf="item.ratings == 'RESTRICTED'">
+                            <img [src]="!item.themeColor || show === item._id ?'assets/img/rating_g_black_icon.svg': 'assets/img/rating_r_white_icon.svg'" height="12px" *ngIf="item.ratings == 'GENERAL AUDIENCES'">
+                            <img [src]="!item.themeColor || show === item._id ? 'assets/img/rating_pg_black_icon.svg':'assets/img/rating_pg_white_icon.svg'" height="12px" *ngIf="item.ratings == 'PARENTAL GUIDANCE'">
+                    &nbsp;<em class="far fa-clock"></em>&nbsp;{{item.audioLength}} | {{addspace(item.genresId)}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+            <div class="col-sm-12 text-center">
+                <!-- Pagination -->
+                <nav aria-label="Page navigation example" *ngIf="getstoryitem != undefined">
+                    <!-- Add class .pagination-lg for larger blocks or .pagination-sm for smaller blocks-->
+                    <ul class="pagination icarus">
+                    <li class="page-item" [ngClass]="{'isdisabled': currentPage === 1}"><a class="page-link"  aria-label="Previous" (click)="pageChange(currentPage,'prev')"> <span aria-hidden="true">&laquo;</span> <span class="sr-only">Previous</span> </a> </li>
+                    <li class="page-item" *ngFor="let item of [].constructor(cal(getstoryitem.total)); let i = index" [ngClass]="{'activepage isdisabled': currentPage === i+1}"><a class="page-link" (click)="pagination(i)" >{{i+1}}</a></li>
+                    <li class="page-item" [ngClass]="{'isdisabled': currentPage == [getstoryitem.total/10 | number:'1.0-0']}"> <a class="page-link" aria-label="Next" (click)="pageChange(currentPage,'next')"> <span aria-hidden="true">&raquo;</span> <span class="sr-only">Next</span> </a> </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+<div>
+<router-outlet></router-outlet>

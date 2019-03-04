@@ -1,0 +1,125 @@
+<nav class="navbar fixed-top navbar-expand-md">
+  <!-- Navbar brand --> 
+  <a class="navbar-brand" (click)="refresh()" routerLink="/" ><img src="assets/img/icarus_black_mark.svg" width="80" alt="Icarus Logo"></a>
+  <!-- Collapsible content -->
+  <div class="mobTopSerach navbar-collapse" id="navbarSupportedContent1">
+    <!-- Search -->
+    <form class="form-inline my-2 my-lg-0" [formGroup]="filterData">
+      <input class="form-control mr-sm-2 search" type="text" formControlName="name" placeholder="Search for stories" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="search()"><img src="assets/img/right_arrow.svg" class="redarrowhover" width="16" alt="submit"></button>
+    </form>
+    &nbsp;<img class="filtericon" src="assets/img/icon_filter.svg" width="25" (mouseover)="toggle(true)" (mouseout)="toggle(false)">
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active d-none d-sm-block"> <a class="nav-link" routerLink="/help"><i class="fas fa-question-circle fa-lg"></i><span class="sr-only">(current)</span></a></li>
+      <!-- <li class="nav-item mobile"> <a class="nav-link mobile" routerLink="/about">Our mission: Organize humankind’s great stories to spread inspiration and wisdom worldwide.<br>
+        <br>
+        <i class="fab fa-instagram fa-md"></i>&ensp;<i class="fab fa-twitter fa-md"></i></a></li> -->
+    </ul>
+  </div>
+</nav>
+
+<div class="story submenu" (mouseover)="toggle(true)" (mouseout)="toggle(false)" [@openClose]="showSubmenu ? 'open' : 'closed'">
+  <div class="container" *ngIf="formactive"> 
+  
+  <p align="right">
+  <a class="btn btn-link" (click)="toggle(false)"> 
+    <img src="assets/img/icon_close_black.svg" width="15" > 
+  </a>
+	</p>
+	<form  (change)="filterFun()" [formGroup]="filterData" >
+	<div class="row submenunavigation" >
+		
+		<div class="col-md-3">
+			<img src="assets/img/_imagemacklemore.jpg" class="img-fluid promobox1" alt="Placeholder image">
+			<img src="assets/img/promobox.jpg" class="img-fluid" alt="Placeholder image">
+		</div>
+		
+		<div class="col-md-3">
+			<h1 class="filter-header">Top FIVE Stories</h1>
+				<ol class="filterolistnostyle" *ngIf="commonServ.topStory != undefined" >
+					<li *ngFor="let item of commonServ.topStory.data; let i = index" [ngClass]="i > 4 ? 'd-none':''">
+						<a class="filter-item ol" routerLink="/detail/{{item._id}}" (click)="toggle()">{{item.name}}</a>
+						<p class="genreInfo"><i class="far fa-clock"></i>&nbsp;{{item.audioLength}} | {{item.genresId}}</p>
+					</li>
+				</ol>
+		</div>
+		
+		<div class="col-md-3">
+			<h1 class="filter-header">Genres</h1>
+				<ul class="filterlistnostyle m-0 p-0">
+					<li>
+						<label class="filter-item" >
+							<img src="assets/img/genre/All.svg"  height="15px" alt=""/>&nbsp; 
+							<input type="checkbox" [checked]="filterData.value.allgenre" formControlName="allgenre" (change)="checkAll(filterData.value.allgenre)" />								
+							<span>All</span>
+						</label>
+					</li>
+				</ul>
+		  	 <ul class="filterlistnostyle" *ngIf="allGenresList != undefined" formGroupName="gen">
+						<li *ngFor="let gen of filterData.controls.gen.controls; let i= index" [ngClass]="filterData.value.allgenre ? 'active':''">
+							<label class="filter-item" >
+								<img src="assets/img/genre/{{allGenresList[i].name}}.svg" height="15px" alt=""/>&nbsp;
+								<input type="checkbox" [formControlName]="i" >
+								<span>{{allGenresList[i].name}}</span>
+							</label>
+						</li>
+			</ul>
+		</div>
+	  
+		<div class="col-md-3">
+		  <h1 class="filter-header">Ratings</h1>
+			<ul class="filterlistnostyle">
+				<li>
+					<label class="filter-item" >
+						<input type="radio" formControlName="ratings" value="GENERAL AUDIENCES"  [checked]="filterData.value.ratings === 'GENERAL AUDIENCES'"/>
+						<img src="assets/img/rating_g_black.svg" height="16px" alt="" class="ratingImg"/>
+					</label>
+				</li>
+				<li>
+					<label class="filter-item" >
+						<input type="radio" formControlName="ratings" value="PARENTAL GUIDANCE" [checked]="filterData.value.ratings === 'PARENTAL GUIDANCE'"/>
+						<img src="assets/img/rating_pg_black.svg" height="16px" alt="" class="ratingImg"/>
+					</label>
+				</li>
+				<li>
+						<label class="filter-item" >
+							<input type="radio" formControlName="ratings" value="RESTRICTED" [checked]="filterData.value.ratings === 'RESTRICTED'"/>
+							<img src="assets/img/rating_r_black.svg" height="16px" alt="" class="ratingImg"/>
+						</label>
+				</li>
+		 </ul>
+			
+			<!-- <h1 class="filter-header">Length</h1>
+					<ul class="filterlistnostyle">
+						<li>
+							<label class="filter-item" >
+								<input type="radio" formControlName="videoDuration" value="1" [checked]="filterData.value.videoDuration === '1'" [(ngModel)]="filterData.value.videoDuration"/>
+								<span><i class="far fa-clock"></i>&nbsp;Under 5:00</span>
+							</label>
+						</li>
+						<li>
+							<label class="filter-item" >
+								<input type="radio" formControlName="videoDuration" value="2" [checked]="filterData.value.videoDuration === '2'"/>
+								<span><i class="far fa-clock"></i>&nbsp;5:00 - 10:00</span>
+							</label>
+						</li>
+						<li>
+							<label class="filter-item" >
+								<input type="radio" formControlName="videoDuration" value="3" [checked]="filterData.value.videoDuration === '3'"/>
+								<span><i class="far fa-clock"></i>&nbsp;10:00 - 20:00</span>
+							</label>
+						</li>
+						<li>
+							<label class="filter-item" >
+								<input type="radio" formControlName="videoDuration" value="4" [checked]="filterData.value.videoDuration === '4'"/>
+								<span><i class="far fa-clock"></i>&nbsp;20:00 +</span>
+							</label>
+						</li>
+					</ul> -->
+			<h1 class="filter-header clearfilter" (click)="commonServ.cleartagval(); clearfilter()">Clear Filter</h1>
+		</div>
+	</div>
+	</form>
+</div>
+</div>

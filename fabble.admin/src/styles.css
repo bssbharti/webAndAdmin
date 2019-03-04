@@ -1,0 +1,337 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://use.fontawesome.com/releases/v5.4.1/css/all.css');
+@import url('https://use.typekit.net/ylu8nbq.css');
+*{    font-family: trade-gothic-next-condensed, sans-serif;}
+html, body { height: 100%; margin: 0; }
+body {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-x: hidden;
+    margin: 0; 
+    /* padding: 77px 0 0 */
+}
+.form-sm label.col-form-label-sm, .form-sm .form-group {
+    margin: 0;
+}
+
+.btn-dark,.btn-success{color:#fff !important;}
+.img-uploadBox .box {
+    position: relative;
+    width: 66px;
+    margin: 1rem 5px 0px 5px;
+}
+.img-uploadBox .box a {
+    position: absolute;
+    right: -5px;
+    top: -3px;
+    background: #343a40;
+    color: #fff !important;
+    font-size: 12px;
+    line-height: normal;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    line-height: 15px;
+    border-radius: 100px;
+}
+
+
+/************/
+/* NAV STYLES ---------------------------------------------------------------*/
+
+.navbar.fixed-top.navbar-expand-md {
+    background-color: #fff;
+    border-bottom: 1px solid #E4E4E4;
+}
+.navbar-brand {
+    margin: 10px 26px 10px 10px;
+}
+.nav-item {
+    margin-right: 10px;
+}
+.nav-link {
+    font-family: proxima-nova, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    color: #7C7C7C;
+    letter-spacing: .5px;
+}
+
+a.nav-link:hover {
+    text-decoration: none;
+    border: none;
+    color: #C1C1C1;
+}
+.col-xl-4.iconfilterbutton {
+    text-align: center;
+    padding-top: 11px;
+}
+.nav-link.mobile {
+    color:#A1A1A1;
+    font-weight: 400;
+    font-size: 14px;
+    border-bottom-style: none;
+}
+a.nav-link.mobile:hover {
+    color:#A1A1A1;
+    text-decoration: none;
+    border: none;
+}
+.form-control.mr-sm-2 {
+    font-family: trade-gothic-next, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    color: #CCCCCC;
+    background-color: #272727;
+    border: none;
+    width: 192px;
+    height: 2px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.form-control.mr-sm-2.search {
+    font-family: trade-gothic-next, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    color: #1D1D1D;
+    background-color: #fff;
+    border: 1px solid #CFCFCF;
+    width: 300px;
+    height: 35px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.btn.btn-outline-success.my-2.my-sm-0 {
+    color: #000000;
+    border: none;
+    padding-right: 5px;
+    padding-left: 0px;
+    height: 25px;
+    width: 25px;
+    font-family: trade-gothic-next, sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 0px;
+    padding-top: 6px;
+    background-color: none;
+    margin-left: -37px;
+}
+.btn.btn-outline-success.my-2.my-sm-0:hover {
+    background-color: #FFFFFF;
+}
+
+
+/* animated hamburger icon ---------------------------------*/
+.story.submenu{box-shadow: 0 0 8px #888; overflow: hidden;}  
+.icon-bar {
+    width: 22px; 
+    height: 2px;
+    background-color: #B6B6B6;
+    display: block;
+    transition: all 0.2s;
+    margin-top: 4px
+}
+
+.navbar-toggler {
+  border: none;
+  background: transparent !important;
+}
+
+.navbar-toggler:focus {
+    outline: none
+}
+
+.navbar-toggler .top-bar {
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
+}
+
+.navbar-toggler .middle-bar {
+  opacity: 0;
+}
+
+.navbar-toggler .bottom-bar {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+}
+
+.navbar-toggler.collapsed .top-bar {
+  transform: rotate(0);
+}
+
+.navbar-toggler.collapsed .middle-bar {
+  opacity: 1;
+}
+
+.navbar-toggler.collapsed .bottom-bar {
+  transform: rotate(0);
+}
+/* .filterlistnostyle{
+    .filter-item{
+        cursor: pointer; position: relative;
+        input{visibility: hidden; position: absolute;}
+        input:checked+span{color:#CC0000}
+
+        input:checked+.ratingImg{background: #CC0000}
+    }
+    .active .filter-item{color:#CC0000}
+} */
+.clearfilter{cursor: pointer;}
+.notshow{visibility: hidden; position: absolute; z-index: -5;}
+/* END OF NAV STYLES ---------------------------------------------------------------*/
+
+
+@media screen and (max-width:768px){
+    body{padding-top: 0;}
+    nav.navbar.fixed-top.navbar-expand-md{position: relative;}
+    .story.submenu{
+        box-shadow: 0 0 8px #888;
+        position: relative;
+    }
+    nav.navbar.navbar-dark.bg-dark.navbar-expand-md{
+        flex-flow: nowrap;
+    }
+    .mobTopSerach {
+        /* display: flex;
+        width: 100%; */
+        padding: 0 !important;
+        text-align: right;      
+    }
+    /* .mobTopSerach form{width:100%; margin: 0 15px 0 !important;} */
+    li.nav-item.active.d-none.d-sm-block{display: none !important;}
+  .navbar.fixed-top.navbar-expand-md {
+      background-color: #FFFFFF;
+  }
+  .navbar-brand {
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 0px;
+  }
+  .navbar-nav.mr-auto {
+      margin-left: 17px;
+  }
+  .form-control.mr-sm-2.search {
+      width: 100%;
+      height: 40px;
+  }
+  .form-control.mr-sm-2 {
+      width: 97%;
+      height: 40px;
+  }
+  
+      
+  #navbarSupportedContent1 {
+      padding-bottom: 28px;
+      margin-right: 20px;
+      padding-top: 18px;
+      margin-left: 20px;
+  }
+  .nav-link {
+      border-bottom: thin dotted #393939;
+  }
+  a.nav-link:hover {
+      border-bottom: thin dotted #393939;
+  }
+  
+  .story.filters {
+      display: none;
+  }
+  .about.copy {
+      margin-left: 40px;
+      margin-right: 40px;
+      font-size: 16px;
+  }
+  .gallery.discover.row {
+      justify-content: center;
+  }
+  .row.submenunavigation {
+      margin-left: 25px;
+      margin-right: 25px;
+  }
+  .filter-header {
+      margin-top: 25px;
+  }
+  #collapseExample {
+      margin-left: 20px;
+      margin-right: 20px;
+  }
+  }
+
+.btn-custom {
+    background-color: #E00105 !important;
+    color: #fff !important;
+}
+.btn-custom:hover {
+    background-color: rgb(184, 4, 7) !important;
+    color: #fff !important;
+}
+table .thead-custom th{color: #fff; background-color: #E00105; border-color: #E00105;}
+.singlelineText{white-space: nowrap; max-width: 250px; overflow: hidden; text-overflow: ellipsis; min-width: 100px}
+.storyHeadline{
+    font-family: trade-gothic-next-condensed, sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    color: #1D1D1D;
+    line-height: 38px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 18px;
+}
+.story.related.tags {
+    font-size: 12px;
+    border: thin none #ababab;
+    border-radius: 4px;
+    color: #555;
+    text-decoration: none;
+    padding-top: 4px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 4px;
+    margin-top: 0;
+    margin-right: 2px;
+    margin-left: 2px;
+    margin-bottom: 8px;
+    display: inline-block;
+    background-color: #F0F0F0;
+}
+
+.form-control, .custom-file-label {
+    border-radius: 0 !important;
+}
+.custom-file-input:lang(en) ~ .custom-file-label::after {
+    content: "Browse";
+    background: #343a40;
+    color: #fff;
+    border-color: #343a40;
+    border-radius: 0;
+    line-height: 1.4;
+}
+.postelink{ display: block; height: 100%; width: 100%; position: absolute; top: 0;}
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(224,1,5,0.1);
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.loader img.circle {max-width: 70px; animation: rotate 2s linear infinite;}
+.loader img.loaderlogo{max-width: 40px; position: absolute;}
+@keyframes rotate {
+    0%  {transform: rotate(0deg)}
+    100% {transform: rotate(360deg)}
+  }

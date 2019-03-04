@@ -1,0 +1,93 @@
+ /* FOOTER STYLES ---------------------------------------------------------------*/
+  
+  
+ footer {
+    background-color: #f2f2f2;
+    text-align: center;
+    display: flex;
+}
+.footerlight {
+    background-color: #F5F5F5;
+}
+.footer.brand {
+    color: #DFDFDF;
+    margin-top: 35px;
+    margin-bottom: 3px;
+}
+.fab.fa-instagram.fa-sm:hover {
+    color:#405de6;
+}
+.fab.fa-twitter.fa-sm:hover {
+    color: #1da1f2;
+}
+.footer.tag {
+    font-family: proxima-nova, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: #555;
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 29px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 17px;
+}
+.footer.icons {
+    color: #555;
+    font-size: 18px;
+    margin-top: -7px;
+    margin-bottom: 10px;
+}
+.footer.links {
+    font-size: 13px;
+    color: #555;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 25px;
+    margin-top: 33px;
+}
+.form-inline.subscription {
+    justify-content: center;
+    margin-bottom: -17px;
+}
+.form-control.subscription {
+    background-color: #FFFFFF;
+    margin-right: 9px;
+    font-size: 13px;
+    color: #1D1D1D;
+    width: 225px;
+}
+.btn.btn-primary.subscription {
+    color: #DFDFDF;
+    border: none;
+    padding-right: 5px;
+    padding-left: 0px;
+    height: 25px;
+    width: 25px;
+    font-family: trade-gothic-next, sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 0px;
+    padding-top: 6px;
+    background-color: #FFFFFF;
+    margin-left: -37px;
+}
+a.footer.links:hover {
+    color: #000000;
+}
+.footer.legal {
+    font-size: 12px;
+    color: #A2A2A2;
+    margin-bottom: 22px;
+}
+.footer.links-legal {
+    color: #a2a2a2;
+}
+a.footer.links-legal:hover {
+    color: #000000;
+    text-decoration: none;
+}
+
+/* END OF FOOTER STYLES ---------------------------------------------------------------*/

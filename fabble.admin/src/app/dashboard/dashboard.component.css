@@ -1,0 +1,129 @@
+.navbar.fixed-top.navbar-expand-md.greybackground {
+    background-color: #F0F0F0;
+}
+
+
+  /**story css**/
+.story-promoposter {
+    height: 550px;
+    padding-top: 40px;
+    margin: 0 0 15px;
+    text-align: center;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.storyinformationholder {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;    
+}
+.storyinformationholder.light a,.storyinformationholder.light  .promospecs{color:#fff; }
+.quickplay {
+    text-align: left;
+    margin-left: 18px;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+.promoheadline{
+    font-size: 22px;
+    margin-bottom: 5px;
+    color: #000;
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 20px;}
+.promoheadline a{color:#000; font-weight: 800}
+.promoheadline a:hover{text-decoration: none}
+
+.promosubhead {
+    color: #000;
+    text-align: left;
+    margin-bottom: 4px;
+    margin-left: 20px;
+    margin-right: 20px;
+    line-height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.promosubhead a{color:#000; font-weight: 400}
+.promosubhead a:hover{text-decoration: none}
+
+.promospecs {
+    color: #000;
+    text-align: left;
+    font-size: 12px;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.promoheadline.light {
+    font-size: 22px;
+    margin-bottom: 5px;
+    color: #FFFFFF;
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.promospecs.light {
+    color: #F5F5F5;
+    text-align: left;
+    font-size: 12px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.CallPlayer{
+    height: 100%;
+    width: 100%;
+    display: block;
+    top: 0;
+    position: absolute;
+    background: rgba(0,0,0,0.7);
+}
+.closeplayer{
+    background: #fff;padding: 0 5px 5px; position: absolute; right:10px; top:10px; z-index: 5;
+}
+.functionicon {
+    top: 10px;
+    position: absolute;
+    background: rgba(0,0,0,0.3);
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 0 !important;
+    left: 10px;
+}
+.functionicon a{color:#fff}
+
+.pagination.icarus {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    justify-content: center;
+}
+.page-link {
+    background-color: #FFFFFF;
+    border-style: none;
+    color: #757575;
+    margin-left: 4px;
+    margin-right: 4px;
+    font-family: proxima-nova, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    border-radius: 4px;
+}
+.activepage .page-link, .page-link:hover {
+    background-color: #E00105;
+    color: #fff !important
+}
+.light.background {
+    background-color: #F5F5F5;
+}
+.isdisabled{pointer-events: none;}
+.filterbadge{line-height: 10px !important; height: 20px;}

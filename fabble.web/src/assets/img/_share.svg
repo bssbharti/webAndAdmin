@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="300" viewBox="0 0 300 300">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_492" data-name="Rectangle 492" width="18.96" height="12" fill="#7bb343"/>
+    </clipPath>
+  </defs>
+  <g id="Group_66" data-name="Group 66" transform="translate(-350 -350)">
+    <rect id="Rectangle_530" data-name="Rectangle 530" width="300" height="300" rx="20" transform="translate(350 350)" fill="#fff"/>
+    <g id="Ellipse_269" data-name="Ellipse 269" transform="translate(558 508.322)" fill="none" stroke="#e4c440" stroke-width="2">
+      <circle cx="20" cy="20" r="20" stroke="none"/>
+      <circle cx="20" cy="20" r="19" fill="none"/>
+    </g>
+    <g id="Ellipse_268" data-name="Ellipse 268" transform="translate(506 508.322)" fill="none" stroke="#c0ca34" stroke-width="2">
+      <circle cx="20" cy="20" r="20" stroke="none"/>
+      <circle cx="20" cy="20" r="19" fill="none"/>
+    </g>
+    <text id="_" data-name="&lt;/&gt;" transform="translate(515.125 533)" fill="#c0ca34" font-size="12" font-family="Futura-Bold, Futura" font-weight="700"><tspan x="0" y="0">&lt;/&gt;</tspan></text>
+    <g id="Group_30" data-name="Group 30" transform="translate(-442.874 260)">
+      <g id="Ellipse_20" data-name="Ellipse 20" transform="translate(926.874 198.322)" fill="none" stroke="#187fb8" stroke-width="2">
+        <circle cx="20" cy="20" r="20" stroke="none"/>
+        <circle cx="20" cy="20" r="19" fill="none"/>
+      </g>
+      <rect id="Rectangle_491" data-name="Rectangle 491" width="3.615" height="11.447" transform="translate(938.559 213.985)" fill="#187fb8"/>
+      <path id="Path_11" data-name="Path 11" d="M41.881,33.5c-2.058,0-3.364,1.1-3.615,1.908V33.6H34.2c.05.954,0,11.447,0,11.447h4.067V38.872a2.786,2.786,0,0,1,.1-.954,2.049,2.049,0,0,1,1.958-1.406c1.406,0,2.058,1.054,2.058,2.611v5.924H46.5V38.671C46.45,35.157,44.442,33.5,41.881,33.5Z" transform="translate(910.182 180.385)" fill="#187fb8"/>
+      <path id="Path_12" data-name="Path 12" d="M23.909,23A2.01,2.01,0,0,0,21.7,25.008a1.984,1.984,0,0,0,2.159,1.958h0a2.01,2.01,0,0,0,2.209-2.008A1.984,1.984,0,0,0,23.909,23Z" transform="translate(916.407 185.613)" fill="#187fb8"/>
+    </g>
+    <g id="Group_32" data-name="Group 32" transform="translate(-436.874 260)">
+      <g id="Ellipse_21" data-name="Ellipse 21" transform="translate(972.874 198.322)" fill="none" stroke="#24a9e6" stroke-width="2">
+        <circle cx="20" cy="20" r="20" stroke="none"/>
+        <circle cx="20" cy="20" r="19" fill="none"/>
+      </g>
+      <path id="Twitter_3_" d="M38.735,23.9a7.007,7.007,0,0,1-2.468.957A3.883,3.883,0,0,0,33.446,23.6a3.935,3.935,0,0,0-3.879,3.979,5.55,5.55,0,0,0,.1.907,10.907,10.907,0,0,1-7.959-4.131,3.866,3.866,0,0,0-.5,2.015A4.2,4.2,0,0,0,22.918,29.7a3.581,3.581,0,0,1-1.763-.5v.05a3.9,3.9,0,0,0,3.123,3.879,3.248,3.248,0,0,1-1.007.151,3.1,3.1,0,0,1-.705-.05,3.951,3.951,0,0,0,3.627,2.771A7.6,7.6,0,0,1,21.407,37.7a5.475,5.475,0,0,1-.907-.05,10.849,10.849,0,0,0,5.944,1.763c7.1,0,11.032-6.045,11.032-11.284v-.5a7.493,7.493,0,0,0,1.914-2.065,6.914,6.914,0,0,1-2.216.6A4.958,4.958,0,0,0,38.735,23.9Z" transform="translate(963.429 186.866)" fill="#24a9e6"/>
+    </g>
+    <g id="Group_31" data-name="Group 31" transform="translate(-448.874 260)">
+      <g id="Ellipse_19" data-name="Ellipse 19" transform="translate(880.874 198.322)" fill="none" stroke="#43619c" stroke-width="2">
+        <circle cx="20" cy="20" r="20" stroke="none"/>
+        <circle cx="20" cy="20" r="19" fill="none"/>
+      </g>
+      <path id="Facebook_2_" d="M6.532,19.409V10.575H9.518l.435-3.421H6.532V4.977c0-1,.249-1.68,1.68-1.68h1.8V.187A15.852,15.852,0,0,0,7.4,0,4.151,4.151,0,0,0,2.986,4.541V7.092H0v3.421H2.986v8.833Z" transform="translate(895.822 208.258)" fill="#43619c"/>
+    </g>
+    <g id="Ellipse_266" data-name="Ellipse 266" transform="translate(403 508.322)" fill="none" stroke="#32b679" stroke-width="2">
+      <circle cx="20" cy="20" r="20" stroke="none"/>
+      <circle cx="20" cy="20" r="19" fill="none"/>
+    </g>
+    <g id="Group_33" data-name="Group 33" transform="translate(415.387 522.451)">
+      <path id="Path_13" data-name="Path 13" d="M1.386,3.823c.186.135.73.554,1.658,1.256S4.665,6.308,5.16,6.687c.049.041.173.135.346.27s.322.243.433.338.26.176.421.284a2.476,2.476,0,0,0,.458.243,1.2,1.2,0,0,0,.408.081h.012a1.2,1.2,0,0,0,.408-.081A2.139,2.139,0,0,0,8.1,7.578c.161-.108.309-.2.421-.284s.26-.2.433-.338.285-.23.346-.27c.495-.378,1.757-1.324,3.774-2.864a3.913,3.913,0,0,0,.978-1.081,2.49,2.49,0,0,0,.4-1.324,1.411,1.411,0,0,0-.384-1,1.226,1.226,0,0,0-.9-.419H1.287A1.1,1.1,0,0,0,.334.459,1.882,1.882,0,0,0,0,1.607a2.177,2.177,0,0,0,.445,1.2,4.1,4.1,0,0,0,.94,1.013Zm0,0" transform="translate(0 0)" fill="#32b679"/>
+      <path id="Path_14" data-name="Path 14" d="M13.649,30.283c-1.77,1.3-3.106,2.31-4.022,3.026-.309.243-.557.446-.742.581a3.877,3.877,0,0,1-.767.419,2.126,2.126,0,0,1-.891.216H7.214a2.126,2.126,0,0,1-.891-.216,4.113,4.113,0,0,1-.755-.419c-.186-.135-.445-.324-.742-.581q-1.1-.871-4.009-3.039A4.215,4.215,0,0,1,0,29.5v7a1.411,1.411,0,0,0,.384,1,1.212,1.212,0,0,0,.916.419H13.167a1.185,1.185,0,0,0,.916-.419,1.443,1.443,0,0,0,.384-1V29.514a5.152,5.152,0,0,1-.817.77Zm0,0" transform="translate(0 -25.515)" fill="#32b679"/>
+    </g>
+    <g id="Ellipse_267" data-name="Ellipse 267" transform="translate(454 508.322)" fill="none" stroke="#7bb343" stroke-width="2">
+      <circle cx="20" cy="20" r="20" stroke="none"/>
+      <circle cx="20" cy="20" r="19" fill="none"/>
+    </g>
+    <g id="Group_34" data-name="Group 34" transform="translate(464.547 522)">
+      <g id="Group_21" data-name="Group 21">
+        <g id="Group_20" data-name="Group 20" clip-path="url(#clip-path)">
+          <path id="Path_15" data-name="Path 15" d="M5.76,6.72h7.68V4.8H5.76ZM1.8,5.76A4,4,0,0,1,5.76,1.8H8.64V0H5.76A5.84,5.84,0,0,0,0,5.76a5.84,5.84,0,0,0,5.76,5.76H8.64V9.72H5.76A4,4,0,0,1,1.8,5.76ZM13.44,0H10.56V1.8h2.88A3.918,3.918,0,0,1,17.4,5.76a3.918,3.918,0,0,1-3.96,3.96H10.56v1.8h2.88A5.84,5.84,0,0,0,19.2,5.76,5.84,5.84,0,0,0,13.44,0Zm0,0" fill="#7bb343"/>
+        </g>
+      </g>
+    </g>
+    <g id="Group_35" data-name="Group 35" transform="translate(570.754 524.589)">
+      <path id="Path_16" data-name="Path 16" d="M13.661,1.006,12.986.331a1.165,1.165,0,0,0-1.627,0L7,4.7,2.633.331A1.113,1.113,0,0,0,1.82,0a1.159,1.159,0,0,0-.813.331l-.662.675A1.1,1.1,0,0,0,0,1.82a1.074,1.074,0,0,0,.345.813L6.19,8.478A1.053,1.053,0,0,0,7,8.823a1.074,1.074,0,0,0,.813-.345l5.845-5.845a1.113,1.113,0,0,0,.331-.813,1.159,1.159,0,0,0-.331-.813Zm0,0" transform="translate(0 0)" fill="#e4c440"/>
+    </g>
+    <g id="share_button" data-name="share button" transform="translate(379.5 203.4)">
+      <path id="Path_152" data-name="Path 152" d="M102.1,178.4a1.921,1.921,0,0,0-1.9-1.4c-.9,0-1.5.4-1.5,1.2,0,2,5.3.9,5.3,4.6,0,2-1.5,3.1-3.7,3.1a3.578,3.578,0,0,1-3.8-2.7l1.8-.6a1.979,1.979,0,0,0,2.1,1.7c1,0,1.7-.5,1.7-1.3,0-2.2-5.3-1-5.3-4.7,0-1.7,1.4-2.8,3.3-2.8,1.8,0,3,.7,3.5,2.3Z" fill="#555"/>
+      <path id="Path_153" data-name="Path 153" d="M112.4,185.7v-4.3h-4.1v4.3h-1.9V175.6h1.9v4h4.1v-4h1.9v10.1Z" fill="#555"/>
+      <path id="Path_154" data-name="Path 154" d="M123,185.7l-.7-2.6H119l-.7,2.6h-1.9l3-10.1H122l3,10.1Zm-3.5-4.3h2.4l-1.2-4.2h0Z" fill="#555"/>
+      <path id="Path_155" data-name="Path 155" d="M132.7,185.7l-1.8-4H129v4h-1.9V175.6h3.4c2.7,0,3.9,1,3.9,2.9a2.617,2.617,0,0,1-1.8,2.6l2.2,4.6Zm-2.2-5.6c.7,0,1.9-.1,1.9-1.4,0-1.2-1-1.4-1.8-1.4H129v2.8h1.5Z" fill="#555"/>
+      <path id="Path_156" data-name="Path 156" d="M137,185.7V175.6h6.5v1.6h-4.6v2.5h3.3v1.6h-3.3v2.8h4.7v1.6H137Z" fill="#555"/>
+    </g>
+    <path id="times-solid" d="M7.687,85.574,10.856,82.4a1,1,0,0,0,0-1.409l-.7-.7a1,1,0,0,0-1.409,0L5.574,83.461,2.4,80.292a1,1,0,0,0-1.409,0l-.7.7a1,1,0,0,0,0,1.409l3.169,3.169L.292,88.743a1,1,0,0,0,0,1.409l.7.7a1,1,0,0,0,1.409,0l3.169-3.169,3.169,3.169a1,1,0,0,0,1.409,0l.7-.7a1,1,0,0,0,0-1.409Z" transform="translate(494.426 529.426)" fill="#b5b5b5"/>
+    <text id="Link_copied." data-name="Link copied." transform="translate(500 580)" fill="#7bb343" font-size="14" font-family="ProximaNova-Bold, Proxima Nova" font-weight="700"><tspan x="-38.164" y="0">Link copied.</tspan></text>
+    <text id="THE_STORY_OF_THE_MOST_INTERESTING_MAN_IN_THE_WORLD" data-name="THE STORY OF THE MOST INTERESTING MAN IN THE WORLD" transform="translate(380 402)" font-size="16" font-family="TradeGothicNextLTPro-HvCn, Trade Gothic Next LT Pro"><tspan x="1.16" y="17">THE STORY OF THE MOST INTERESTING </tspan><tspan x="59.744" y="33">MAN IN THE WORLD</tspan></text>
+  </g>
+</svg>

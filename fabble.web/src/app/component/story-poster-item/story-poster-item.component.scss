@@ -1,0 +1,94 @@
+
+.story-promoposter {
+    height: 550px;
+    padding-top: 40px;
+    margin: 0 0 15px;
+    text-align: center;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.storyinformationholder {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    z-index: 1;
+    /*---border: 1px solid #8AC007;-----*/
+    // a{color:#000}
+}
+.storyinformationholder.light {
+    a, .promospecs{color:#fff; }    
+}
+.quickplay {
+    text-align: left;
+    margin-left: 18px;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+.promoheadline{
+    font-size: 22px;
+    margin-bottom: 5px;
+    color: #000;
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    a{color:#000; font-weight: 800}
+    a:hover{text-decoration: none}
+}
+.promosubhead {
+    color: #000;
+    text-align: left;
+    margin-bottom: 4px;
+    margin-left: 20px;
+    margin-right: 20px;
+    line-height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    a{color:#000; font-weight: 400}
+    a:hover{text-decoration: none}
+}
+.promospecs {
+    color: #000;
+    text-align: left;
+    font-size: 12px;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.promoheadline.light {
+    font-size: 22px;
+    margin-bottom: 5px;
+    color: #FFFFFF;
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.promospecs.light {
+    color: #F5F5F5;
+    text-align: left;
+    font-size: 12px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.CallPlayer{
+    height: 100%;
+    width: 100%;
+    display: block;
+    top: 0;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+}
+.closeplayer{
+    background: #fff;padding: 0 5px 5px; position: absolute; right:10px; top:10px; z-index: 5;
+}
+.postelink{ display: block; height: 100%; width: 100%; position: absolute; top: 0;}

@@ -1,0 +1,34 @@
+<!-- <div class="story-promoposter" [style.backgroundImage]="'url('+data.img+')'" >
+  <div class="storyinformationholder" [ngClass]="data.themecolor ? 'light' :''">
+    <div class="quickplay"><img src="assets/img/icon_quickplay.svg" height="20px" alt=""/></div>
+    <h1 class="promoheadline">
+        <a routerLink="/detail" >{{data.title}}</a></h1>
+    <p class="promosubhead"><a routerLink="/detail" >{{data.shortdetail}}</a></p>
+    <p class="promospecs"><img src={{data.promoimg}} height="12px">&nbsp;<em class="far fa-clock"></em>&nbsp;{{data.duration}} | {{data.category}}</p>
+  </div>
+</div> -->
+<!-- <div class="story-promoposter" [style.backgroundImage]="'url('+urlcorrect(data.posterImage)+')'"> -->
+  <div class="story-promoposter" [ngStyle]="{'background-image': 'url('+data.posterImage+')'}" >
+    <a routerLink="/detail/{{data._id}}" class="postelink"></a>
+  <!-- {{urlcorrect(data.posterImage)}} -->
+  <div class="storyinformationholder" [ngClass]="ActiveColor ? '' :''">
+      <!-- [ngClass]="data.themecolor && ActiveColor ? '' :'light'" -->
+      <!-- this.commonServ.activePlayer(id) -->
+    <!-- <div class="quickplay" (click)="showPlayer(data._id); changeColor(false)"><img src="assets/img/icon_quickplay.svg" height="20px" alt=""/></div> -->
+    <div class="quickplay" (click)="this.commonServ.activePlayer(data._id); changeColor(false)"><img src="assets/img/icon_quickplay.svg" height="20px" alt=""/></div>
+    <h1 class="promoheadline">
+        <a routerLink="/detail/{{data._id}}" >{{data.name}}</a></h1>
+    <p class="promosubhead"><a routerLink="/detail/{{data._id}}" >{{data.overview}}</a></p>
+    <p class="promospecs">
+      <img src="assets/img/rating_r_black_icon.svg" height="12px" *ngIf="data.ratings == 'RESTRICTED'">
+      <img src="assets/img/rating_g_black_icon.svg" height="12px" *ngIf="data.ratings == 'GENERAL AUDIENCES'">
+      <img src="assets/img/rating_pg_black_icon.svg" height="12px" *ngIf="data.ratings == 'PARENTAL GUIDANCE'">
+      &nbsp;&nbsp;&nbsp;&nbsp;<em class="far fa-clock"></em>&nbsp;&nbsp;{{data.audioLength}} | {{data.genresId}}</p>
+  </div>
+ 
+  <app-player [data]="data" *ngIf="this.commonServ.activeAudio === data._id" class="CallPlayer"></app-player>
+  <!--<iframe scrolling="no" *ngIf="show === data._id" style="overflow:hidden;width: 100%;height: 100%;border:none;top: 0;position: absolute;left: 0;" scrolling="no" [src]="urlval"></iframe>-->
+  <button type="button" *ngIf="show === data._id" class="close closeplayer" (click)="hidePlayer();  changeColor(true)" >
+      <span aria-hidden="true">&times;</span>
+  </button> 
+</div>

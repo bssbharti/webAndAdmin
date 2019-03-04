@@ -1,0 +1,421 @@
+<nav class="navbar navbar-dark bg-dark navbar-expand-md">
+    <!-- Navbar brand --> 
+    <a class="navbar-brand" routerLink="/dashboard">Admin Panel</a>
+    <!-- Collapsible content -->
+    <div class="mobTopSerach navbar-collapse" id="navbarSupportedContent1">
+        <ul class="navbar-nav ml-auto">
+        <li class="nav-item active d-none d-sm-block"><a  class="nav-link" (click)="logout()"><i class="fas fa-sign-out-alt"></i></a> </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="row">
+    <div class="col-sm-12">
+        <p></p>
+        <h1 class="storyHeadline">{{storyId ?'Update Story':'Create New Story'}}</h1>
+    </div>
+</div>
+
+<div class="is-auth col-md-12 mt-3">
+    <div class="card p-4 shadow-lg form-sm">
+        <form #createStoryForm="ngForm" (ngSubmit)="createStoryForm.form.valid && addEditStory(createStoryForm)" novalidate>
+            <!-- <div class="form-heading">
+                <h3 class="mt0">{{storyId ?'Update Story':'Create New Story'}}</h3>
+            </div> -->
+            <div class="form-body">
+                <div class="form-row">
+                    <div class="col-md-4">
+                        <label class="col-form-label-sm">Name</label>
+                        <div class="form-group has-feedback">
+                            <input type="text" required [(ngModel)]="story.name" name="name" class="form-control " #storyName="ngModel" [ngClass]="{ 'is-invalid': createStoryForm.submitted && storyName.invalid }" placeholder="Enter name">
+                            <div *ngIf="createStoryForm.submitted && storyName.invalid" class="invalid-feedback">
+                                <div *ngIf="storyName.errors.required">Story Name is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-4">
+                        <label class="col-form-label-sm">Sponsor</label>
+                        <div class="form-group has-feedback">
+                            <input type="text" [(ngModel)]="story.sponsor" name="sponsor" class="form-control " placeholder="Enter sponsor name">
+
+                        </div>
+                    </div> -->
+
+                    <div class="col-md-4">
+                        <label class="col-form-label-sm">Overview</label>
+                        <div class="form-group has-feedback">
+                            <input type="text" [(ngModel)]="story.overview" name="overview" class="form-control " placeholder="overview">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                            <label class="col-form-label-sm">Audio</label>
+                            <div class="form-group position-relative has-feedback">
+                                <input type="file" id="variable" #variable accept="audio/*" name="audio" class="custom-file-input" (change)="audioEvent($event)">
+                                <label class="custom-file-label" for="variable">{{audioFileName?audioFileName:'Choose file'}} </label>
+                            </div>
+    
+                            <div class="form-row" *ngIf="audio&&audio.Name">
+                                <div class="card1 badgeweight">
+                                    <span class="badge badge-dark m-1">{{audio.Name}}</span>
+                                    <span class="badge badge-dark m-1">{{audio.Length}}</span>    
+                                    <a class="danger ml-1" (click)="removeAudio()"><i class=" fa fa-remove"></i></a>    
+                                </div>
+                            </div>
+    
+    
+    
+                            <!-- <div *ngIf="audio&&audio.Name">
+                                 <span>{{audio.Name}} </span>
+                                <label class="badge-primary">{{audio.Length}}</label>
+                                <a class="danger ml-1" (click)="this.audio=''"><i class=" fa fa-remove"></i></a>
+                            </div> -->
+    
+                        </div>
+
+                </div>
+                <div class="card px-3 pt-1 pb-3 border-1 mt-3 bg-light">
+                    <div class="form-row">
+                        <!-- <div  class="col-md-1 d-sm-flex align-items-end">
+                            <div *ngIf="pstrImgUrl" class="d-flex img-uploadBox" style="margin-bottom: 32px">
+                                <div class="box">
+                                    <img [src]="pstrImgUrl" width="100" height="100" class="img-thumbnail">
+                                    <a class="danger ml-1" (click)="removeImg('poster')"><i class=" fa fa-remove"></i></a>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <div class="col-md-4">
+                            <p></p>
+                            <label class="col-form-label-sm btn btn-dark btn-block" for="posterimageUpload"><i class="fas fa-upload"></i> Feature Page Poster</label>
+                            <div class="form-group position-absolute has-feedback invisible" style="top: 0;">
+                                <input type="file" id="posterimageUpload" accept="image/*"  name="posterimage" class="custom-file-input " (change)="posterImage($event)">
+                                <label class="custom-file-label" for="posterimageUpload">{{posterFileName?posterFileName:'Choose file'}} </label>
+                                <!-- <img [src]="imgurl" width="100" height="100" class="img-thumbnail"> -->
+                            </div>
+                            <div *ngIf="pstrImgUrl" class="d-flex img-uploadBox" style="margin-bottom: 32px">
+                                <p></p>
+                                <div class="box">
+                                    <img [src]="this.sanitizer.bypassSecurityTrustResourceUrl(pstrImgUrl)" width="100" height="100" class="img-thumbnail">
+                                    <a class="danger ml-1" (click)="removeImg('poster')"><i class=" fa fa-remove"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-md-1 d-sm-flex align-items-end">
+                            <div *ngIf="embedImgurl" class="d-flex img-uploadBox" style="margin-bottom: 32px">
+                                <div class="box">
+                                    <img [src]="embedImgurl" width="100" height="100" class="img-thumbnail">
+                                    <a class="danger ml-1" (click)="removeImg('embed')"><i class=" fa fa-remove"></i></a>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="col-md-4">
+                                <p></p>
+                            <label class="col-form-label-sm  btn btn-dark btn-block" for="embedimageUpload"><i class="fas fa-upload"></i> Search and Embed Poster</label>
+                            <div class="form-group position-absolute has-feedback invisible" style="top: 0;">
+                                <input type="file" id="embedimageUpload" accept="image/*" multiple name="embedimage" class="custom-file-input " (change)="embedImage($event)">
+                                <label class="custom-file-label" for="embedimageUpload">{{embedFileName?embedFileName:'Choose file'}} </label>
+                                <!-- <img [src]="imgurl" width="100" height="100" class="img-thumbnail"> -->
+                            </div>
+
+                            <div *ngIf="embedImgurl" class="d-flex img-uploadBox" style="margin-bottom: 32px">
+                                    <div class="box">
+                                        <img [src]="this.sanitizer.bypassSecurityTrustResourceUrl(embedImgurl)" width="100" height="100" class="img-thumbnail">
+                                        <a class="danger ml-1" (click)="removeImg('embed')"><i class=" fa fa-remove"></i></a>
+                                    </div>
+                                </div>
+                        </div>
+                        <!-- <div class="col-md-1 d-sm-flex align-items-end">
+                            <div *ngIf="spnsImgUrl" class="d-flex img-uploadBox" style="margin-bottom: 32px">
+                                <div class="box">
+                                    <img [src]="spnsImgUrl" width="100" height="100" class="img-thumbnail">
+                                    <a class="danger ml-1" (click)="removeImg('sponser')"><i class=" fa fa-remove"></i></a>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="col-md-4">
+                                <p></p>
+                            <label class="col-form-label-sm btn btn-dark btn-block" for="sponserimageUpload"><i class="fas fa-upload"></i> Sponsor Logo</label>
+                            <div class="form-group position-absolute has-feedback invisible" style="top: 0;">
+                                <input type="file" id="sponserimageUpload" accept="image/*"  name="spsimage" class="custom-file-input " (change)="sponserImage($event)">
+                                <label class="custom-file-label" for="sponserimageUpload">{{sponserFileName?sponserFileName:'Choose file'}} </label>
+                                <!-- <img [src]="imgurl" width="100" height="100" class="img-thumbnail"> -->
+                            </div>
+                            <div *ngIf="spnsImgUrl" class="d-flex img-uploadBox" style="margin-bottom: 32px">
+                                    <p></p>
+                                <div class="box">
+                                    <img [src]="this.sanitizer.bypassSecurityTrustResourceUrl(spnsImgUrl)" width="100" height="100" class="img-thumbnail">
+                                    <a class="danger ml-1" (click)="removeImg('sponser')"><i class=" fa fa-remove"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <label id="rating" class="col-form-label-sm">White Text color for poster</label>
+                        <p class="mb-0">
+                            <label class="switch">
+                            <input type="checkbox" class="form-check-input" [(ngModel)]="story.themeColor" name="themeColor" />
+                            <span class="slider round"></span>
+                        </label>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-4">
+                        <label id="rating" class="col-form-label-sm">Ratings</label>
+                        <div class="form-group has-feedback">
+                            <!-- <input type="text" [(ngModel)]="ratings" name="ratings" class="form-control " placeholder="Enter rating" required> -->
+                            <select class="form-control " [(ngModel)]="selectedRating" name="Ratings" #rating="ngModel" [ngClass]="{ 'is-invalid': createStoryForm.submitted && rating.invalid }" required>
+                                <option value="">--Select Rating--</option>
+                                <option value="RESTRICTED">RESTRICTED</option>
+                                <option value="PARENTAL GUIDANCE">PARENTAL GUIDANCE</option>
+                                <option value="GENERAL AUDIENCES">GENERAL AUDIENCES</option>
+                            </select>
+                            <div *ngIf="createStoryForm.submitted && rating.invalid" class="invalid-feedback">
+                                <div *ngIf="rating.errors.required">Select any Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label id="rating" class="col-form-label-sm">Genres</label>
+                        <div class="form-group has-feedback">
+                            <select class="form-control " [(ngModel)]="selectedGenresId" (change)="addGenres()" name="geners" #geners="ngModel" [ngClass]="{ 'is-invalid': createStoryForm.submitted && geners.invalid }">
+                                <option value="">--Select Genres--</option>
+                                <option *ngFor="let item of genresList" [value]="item._id">
+                                    {{item.name}}
+                                </option>
+                            </select>
+                            <div *ngIf="createStoryForm.submitted && geners.invalid" class="invalid-feedback">
+                                <div *ngIf="geners.errors.required">Select any Genres</div>
+                            </div>
+
+                        </div>
+
+                        <div class="d-flex flex-wrap badgeweight">
+                            <div *ngFor="let item of genresNameList;index as i;trackBy:trackByIndex" class="badge badge-dark m-1">
+                                <span> {{item}}<a class="danger ml-1" (click)="removeGenres(i)"><i class=" fa fa-remove"></i></a></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- <div class="col-md-4">
+                                    <span *ngFor="let item of genresArray">{{item | json}}</span>   
+                                
+                                </div> -->
+                   
+                    <div class="col-md-4">
+                        <label class="col-form-label-sm">Tags</label>
+                        <div class="input-group has-feedback">
+                            <input type="text" name="tag" [(ngModel)]="tag" class="form-control " placeholder="Enter tags">
+                            <a (click)="addTags();tag=''" class="btn btn-dark rounded-0"><i class="fa fa-plus"></i></a>
+                        </div>
+                        <!-- <div class="d-flex flex-wrap ">
+                            <div *ngFor="let item of tags;index as i;trackBy:trackByIndex" class="badge badge-dark m-1">
+                                {{item}}<a class="danger ml-1" (click)="removeTag(i)"><i class=" fa fa-remove"></i></a>
+                            </div>
+                        </div> -->
+
+                        <div class="d-flex flex-wrap badgeweight">
+                            <div *ngFor="let item of tags;index as i;trackBy:trackByIndex" class="badge badge-dark m-1">
+                                {{item}}<a class="danger ml-1" (click)="removeTag(i)"><i class=" fa fa-remove"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+
+                    
+                    <div class="col-md">
+                        <label class="col-form-label-sm">Support Media</label>
+                        <div class="form-group position-relative has-feedback">
+                            <input type="file" id="imageUpload" accept="image/*" multiple name="image" class="custom-file-input " (change)="imageEvent($event)">
+                            <label class="custom-file-label" for="imageUpload">{{imageFileName?imageFileName:'Choose file'}} </label>
+                            <!-- <img [src]="imgurl" width="100" height="100" class="img-thumbnail"> -->
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md d-sm-flex align-items-end">
+                        <div class="d-flex img-uploadBox">
+                            <div class="box" *ngFor="let item of images | slice:0:5;index as i">
+                                <img [src]="item" width="100" height="100" class="img-thumbnail">
+                                <a class="danger ml-1" (click)="removeImage(item,i)"><i class=" fa fa-remove"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- <div class="form-row">
+                    <div class="col-md-4">
+                        <div class="d-flex flex-wrap badgeweight">
+                            <div *ngFor="let item of tags;index as i;trackBy:trackByIndex" class="badge badge-dark m-1">
+                                {{item}}<a class="danger ml-1" (click)="removeTag(i)"><i class=" fa fa-remove"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+
+
+
+
+                <div class="card px-3 pt-1 pb-3 border-1 mt-3 bg-light">
+                    <div class="form-row">
+
+                        <div class="col-md-8">
+                            <label class="col-form-label-sm">Video Url</label>
+                            <div class="input-group has-feedback">
+                                <input type="text" #tagV="ngModel" name="tags" [(ngModel)]="videoObject.url" class="form-control " placeholder="video url" [ngClass]="{ 'is-invalid': createStoryForm.submitted && tagV.invalid }">
+                                <div *ngIf="createStoryForm.submitted && tagV.invalid" class="invalid-feedback">
+                                    <!-- <div *ngIf="name.errors.required">Business Name is required</div> -->
+                                    <div *ngIf="tagV.errors.pattern">Video url must be alphabetical</div>
+                                </div>
+                                <!-- <a (click)="AddVideoUrl();videoURL=''" class="btn btn-success btn-sm "><i class="fa fa-plus"></i></a> -->
+                            </div>
+                            <!-- <div class="d-flex flex-wrap ">
+                                    <div *ngFor="let item of videoUrls;index as i;trackBy:trackByIndex;" class="badge badge-primary m-1">
+                                        {{item}}<a class="danger ml-1" (click)="removeVideoUrl(i)"><i class=" fa fa-remove"></i></a>
+                                    </div>
+                                </div> -->
+                        </div>
+
+                        <!-- <div class="col-md-4">
+                            <label class="col-form-label-sm">Subtitle File</label>
+                            <div class="form-group position-relative">
+                                <input type="file" id="uploadFile" name="video" #uploadFile class="custom-file-input" (change)="addSubtitle($event)" accept="text/vtt" >
+                                <label class="custom-file-label" for="uploadFile">{{transcriptFileName?transcriptFileName:'Choose file'}}</label>
+                            </div>
+                        </div> -->
+
+
+                        <div class="col-md-3">
+                            <label class="col-form-label-sm">Video Length</label>
+                            <select class="form-control " [(ngModel)]="videoObject.videoDuration" name="duration">
+                                <option value="">--Select Length--</option>
+                                <option value="1">Under 5:00</option>
+                                <option value="2">5:00 - 10:00</option>
+                                <option value="3">10:00 - 20:00</option>
+                                <option value="4">20:00 +</option>
+                            </select>
+                        </div>
+                        <div class="col-md-1 d-sm-flex align-items-end">
+                            <a (click)="AddVideoUrl(); clearval ? this.uploadFile.value = null :''" class="btn btn-dark rounded-0 ">Add</a>
+                        </div>
+
+                    </div>                    
+                    <div class="form-row">
+                        <div *ngFor="let item of videoUrls | slice:0:5;index as i;trackBy:trackByIndex;" class="card1 badgeweight">
+                            <span class="badge badge-dark m-1">{{item.url}}</span>
+                            <span class="badge badge-dark m-1">{{item.transcriptName?item.transcriptName:'N/A'}}</span>
+                            <span class="badge badge-dark m-1">{{item.videoDuration}}</span>
+                            <a class="danger ml-1" (click)="deleteStoryVideo(item._id,i)"><i class=" fa fa-remove"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <label class="col-form-label-sm">Transcript</label>
+                        <div class="form-group has-feedback">
+                            <textarea type="text" [(ngModel)]="story.transcriptText" name="transcriptText" class="form-control " placeholder="Enter transcript text">
+                            </textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <label class="col-form-label-sm">Description</label>
+                        <div class="form-group has-feedback">
+                            <textarea type="text" [(ngModel)]="story.description" name="description" class="form-control " placeholder="Enter description">
+                                            </textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card px-3 pt-1 pb-3 border-1 mt-3 bg-light">
+                    <!-- <h6>Credits:</h6> -->
+                    <!-- <div class="col-md-4" >
+                        <a (click)="addCredit();" class="btn btn-dark rounded-0"><i class="fa fa-plus"></i>
+                            Add More Credit
+                        </a>
+                    </div>  -->
+                    <div class="form-row" *ngFor="let item of roles;trackBy:trackByIndex;index as i">
+
+                        <div class="col-md-4">
+                            <label class="col-form-label-sm">Role</label>
+                            <div class="input-group has-feedback">
+                                <input type="text" name="role{{i}}" [(ngModel)]="item.role" class="form-control ">
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <label class="col-form-label-sm">Name</label>
+                            <div class="form-group position-relative">
+                                <input type="text" name="Name{{i}}" [(ngModel)]="item.name" class="form-control ">
+                            </div>
+                        </div>
+
+
+                        <!-- <div class="col-md-4">
+                            <label class="col-form-label-sm">Original Story</label>
+                            <input type="text" name="OriginalStory" [(ngModel)]="credit.OriginalStory" class="form-control ">
+                        </div> -->
+                        <div *ngIf="i === 0" class="col-md-3" style="margin-top: 30px ">
+                            <a (click)="addCredit();" class="btn btn-dark btn-block rounded-0"><i class="fa fa-plus"></i>
+                                Add More Credit
+                            </a>
+                        </div>
+                        <div *ngIf="roles.length > 1 && i >0" class="col-md-3" style="margin-top: 30px ">
+                                <a (click)="removeCredit(i);" class="btn btn-dark rounded-0"><i class="fa fa-remove"></i></a>
+                            </div>  
+
+                    </div>
+
+
+<!-- 
+                    <div class="form-row">
+                        <div class="col-md-4">
+                            <label class="col-form-label-sm">Narator</label>
+                            <div class="input-group has-feedback">
+                                <input type="text" name="Narator" [(ngModel)]="credit.Narator" class="form-control ">
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="col-form-label-sm">Actor</label>
+                            <div class="form-group position-relative">
+                                <input type="text" name="Actor" [(ngModel)]="credit.Actor" class="form-control ">
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-3">
+                            <label class="col-form-label-sm">Music</label>
+                            <input type="text" name="music" [(ngModel)]="credit.Music" class="form-control ">
+                        </div>
+                    </div> -->
+                </div>
+                <div class="form-row justify-content-center">
+                    <!-- <div class="col-sm-12 text-center"> -->
+                        <button type="submit" class="col-sm-3 align-self-center btn btn-success mt-3">{{storyId ?'Update':'Save'}}</button>
+                    <!-- </div> -->
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+<div class="loader" *ngIf="loading">
+    <img class="circle" src="assets/img/loader.svg" />
+    <img class="loaderlogo" src="assets/img/icarus_black_mark.svg" />
+</div>

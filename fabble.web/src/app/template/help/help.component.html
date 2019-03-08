@@ -1,0 +1,57 @@
+    
+<!-- Section for Hero content -->	
+<section class="section help hero">
+
+	<div class="help div-hero">
+	  
+
+	  <div class="row contact us">
+		
+		  <!--<div class="help heroimage"><a href="mailto:team@icarus.com"><img src="img/Spacesuit.jpg" width="200" alt=""></a></div><br>-->
+			  <div class="brand eyebrow"><img class="icaruslogo" src="./assets/img/icarus_black_mark.svg" height="16px" alt="" style="margin: -7px 0 0; " /> Support</div>
+		  <span><a class="main email" a href="mailto:team@icarus.com">Team@Icarus.global</a></span>
+		  <p class="email description">Use this email for general questions, partnerships, collaborating with Icarus and everything in between. We respond quickly. </p>
+	  </div>
+	</div>
+ 
+</section>
+	
+    
+<!-- Section for FAQ -->
+    <section class="section faq article">
+      <div class="faq div-headline">
+        <h1 class="faq headline"><i class="fas fa-bolt fa-xs"></i> Quick assists</h1>
+      </div>
+      
+      <!-- Accordion -->
+      <div id="accordion1" role="tablist"  >
+        <div class="card help">
+          <div class="card-header" role="tab" id="headingOne1">
+            <h5 class="mb-0"> <a class="faq" (click)="opentab(1)"> Can I submit a story? </a></h5>
+          </div>
+          <div id="collapseOne1" class="collapse show" [ngClass]="isOpen === 1 ? 'show':''" [@openClose]="isOpen === 1 ? 'open' : 'closed'">
+            <p class="card-body help">Etiam lacinia massa dolor, ac hendrerit purus bibendum non. Vestibulum elementum dolor non neque rhoncus, ut condimentum erat aliquet. In fringilla nunc odio, nec viverra ligula faucibus quis. Nunc sollicitudin iaculis bibendum. Proin eget euismod justo. Quisque molestie enim sed turpis viverra, id semper purus rhoncus. Nam sit amet mauris viverra, sagittis dui sit amet, cursus nibh. Proin iaculis venenatis quam vel iaculis.</p>
+          </div>
+        </div>
+        
+        <div class="card help">
+          <div class="card-header" role="tab" id="headingTwo1">
+            <h5 class="mb-0"> <a class="faq" (click)="opentab(2)"> Can I download a story? </a></h5>
+          </div>
+          <div id="collapseTwo1" class="collapse" [ngClass]="isOpen === 2 ? 'show':''"  [@openClose]="isOpen === 2 ? 'open' : 'closed'">
+            <p class="card-body help">Etiam lacinia massa dolor, ac hendrerit purus bibendum non. Vestibulum elementum dolor non neque rhoncus, ut condimentum erat aliquet. In fringilla nunc odio, nec viverra ligula faucibus quis. Nunc sollicitudin iaculis bibendum.
+            </p>
+          </div>
+        </div>
+        
+        <div class="card help">
+          <div class="card-header" role="tab" id="headingThree1">
+            <h5 class="mb-0"> <a class="faq" (click)="opentab(3)"> How often do you release stories? </a></h5>
+          </div>
+          <div id="collapseThree1" class="collapse" [ngClass]="isOpen === 3 ? 'show':''"  [@openClose]="isOpen === 3 ? 'open' : 'closed'" >
+            <p class="card-body help"><img src="./assets/img/TinkermanPhoto1.png" class="rounded img-fluid" alt="Placeholder image"><br><br>
+              Etiam lacinia massa dolor, ac hendrerit purus bibendum non. Vestibulum elementum dolor non neque rhoncus, ut condimentum erat aliquet. In fringilla nunc odio, nec viverra ligula faucibus quis. Nunc sollicitudin iaculis bibendum.</p>
+          </div>
+        </div>
+      </div>
+    </section>

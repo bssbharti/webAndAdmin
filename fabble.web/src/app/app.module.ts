@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { HelpComponent } from './template/help/help.component';
+import { AboutComponent } from './template/about/about.component';
 // import { PlayerComponent } from './component/player/player.component';
 
 @NgModule({
@@ -16,6 +18,8 @@ import { FooterComponent } from './component/footer/footer.component';
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    HelpComponent,
+    AboutComponent,
     // PlayerComponent
   ],
   imports: [
